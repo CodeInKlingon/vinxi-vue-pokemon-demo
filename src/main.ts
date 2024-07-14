@@ -10,8 +10,10 @@ import {
 import "./style.css";
 import VueApp from "./App.vue";
 import { routes, handleHotUpdate } from "vue-router/auto-routes";
+import { DataLoaderPlugin } from "unplugin-vue-router/data-loaders";
+import { createPinia } from "pinia";
+import { QueryPlugin } from "@pinia/colada";
 
-console.log("routes", routes);
 export function createApp(isServer: boolean): [App<Element>, Router] {
 	const app = createSSRApp(VueApp);
 
@@ -19,6 +21,14 @@ export function createApp(isServer: boolean): [App<Element>, Router] {
 		history: isServer ? createMemoryHistory() : createWebHistory(),
 		routes: routes ?? [],
 	});
+
+	app.use(createPinia());
+	// install after pinia
+	app.use(QueryPlugin, {
+		// optional options
+	});
+
+	app.use(DataLoaderPlugin, { router });
 
 	app.use(router);
 
