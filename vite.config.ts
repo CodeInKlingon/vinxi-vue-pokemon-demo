@@ -46,7 +46,7 @@ export default createApp({
 				}),
 				config("custom", {
 					ssr: {
-						noExternal: ["vue-router"],
+						noExternal: ["vue-router", "unplugin-vue-router"],
 					},
 				}),
 				vue(),
