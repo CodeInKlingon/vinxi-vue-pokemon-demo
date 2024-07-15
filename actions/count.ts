@@ -5,7 +5,7 @@ export function getCount() {
 	const count = parseInt(
 		fs
 			.readFileSync(
-				"/Users/daniel/Downloads/vinxi-vue-start/actions/count.txt"
+				"./actions/count.txt"
 			)
 			.toString()
 	);
@@ -17,12 +17,12 @@ export function incrementCount() {
 	let count = parseInt(
 		fs
 			.readFileSync(
-				"/Users/daniel/Downloads/vinxi-vue-start/actions/count.txt"
+				"./actions/count.txt"
 			)
 			.toString()
 	);
 	fs.writeFileSync(
-		"/Users/daniel/Downloads/vinxi-vue-start/actions/count.txt",
+		"./actions/count.txt",
 		(count + 1).toString()
 	);
 	return count + 1;
