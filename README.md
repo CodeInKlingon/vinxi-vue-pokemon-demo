@@ -1,8 +1,5 @@
 # Vinxi + Vue 3
 
-
-https://stackblitz.com/github/CodeInKlingon/vinxi-vue-pokemon-demo
-
 Features:
 
 -   vue ssr
