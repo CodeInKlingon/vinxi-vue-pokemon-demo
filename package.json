@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "@pinia/colada": "^0.6.0",
+    "@primevue/themes": "^4.0.0",
     "@vinxi/server-functions": "^0.3.2",
     "pinia": "^2.1.7",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.0.0",
     "vinxi": "^0.3.11",
     "vue": "^3.4.27",
     "vue-router": "^4.4.0"

@@ -19,10 +19,11 @@ declare module 'vue-router/auto-routes' {
    */
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
-    '/about': RouteRecordInfo<'/about', '/about', Record<never, never>, Record<never, never>>,
-    '/about/': RouteRecordInfo<'/about/', '/about', Record<never, never>, Record<never, never>>,
-    '/about/create': RouteRecordInfo<'/about/create', '/about/create', Record<never, never>, Record<never, never>>,
-    '/about/edit': RouteRecordInfo<'/about/edit', '/about/edit', Record<never, never>, Record<never, never>>,
-    '/about/edit/[aboutId]': RouteRecordInfo<'/about/edit/[aboutId]', '/about/edit/:aboutId', { aboutId: ParamValue<true> }, { aboutId: ParamValue<false> }>,
+    '/pokedex': RouteRecordInfo<'/pokedex', '/pokedex', Record<never, never>, Record<never, never>>,
+    '/pokedex/': RouteRecordInfo<'/pokedex/', '/pokedex', Record<never, never>, Record<never, never>>,
+    '/pokedex/create': RouteRecordInfo<'/pokedex/create', '/pokedex/create', Record<never, never>, Record<never, never>>,
+    '/pokedex/edit': RouteRecordInfo<'/pokedex/edit', '/pokedex/edit', Record<never, never>, Record<never, never>>,
+    '/pokedex/edit/[id]': RouteRecordInfo<'/pokedex/edit/[id]', '/pokedex/edit/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    '/pokedex/view/[id]': RouteRecordInfo<'/pokedex/view/[id]', '/pokedex/view/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
   }
 }

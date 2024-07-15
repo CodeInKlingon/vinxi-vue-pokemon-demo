@@ -1,18 +1,62 @@
 <script setup lang="ts">
 import HelloWorld from "../components/HelloWorld.vue";
+import Menubar from "primevue/menubar";
 </script>
 
 <template>
+	<Menubar
+		:model="[
+			{
+				icon: 'pi pi-home',
+				label: 'Home',
+				route: '/',
+			},
+			{
+				icon: 'pi pi-book',
+				label: 'Pokedex',
+				route: '/pokedex',
+			},
+		]"
+	>
+		<template #item="{ item, props, hasSubmenu }">
+			<router-link
+				v-if="item.route"
+				v-slot="{ href, navigate }"
+				:to="item.route"
+				custom
+			>
+				<a
+					v-ripple
+					:href="href"
+					v-bind="props.action"
+					@click="navigate"
+				>
+					<span :class="item.icon" />
+					<span class="ml-2">{{ item.label }}</span>
+				</a>
+			</router-link>
+			<a
+				v-else
+				v-ripple
+				:href="item.url"
+				:target="item.target"
+				v-bind="props.action"
+			>
+				<span :class="item.icon" />
+				<span class="ml-2">{{ item.label }}</span>
+				<span v-if="hasSubmenu" class="pi pi-fw pi-angle-down ml-2" />
+			</a>
+		</template>
+
+		<template #end>
+			<Suspense>
+				<HelloWorld msg="Vite + Vue" />
+			</Suspense>
+		</template>
+	</Menubar>
 	<Suspense>
 		<router-view></router-view>
 	</Suspense>
-	<Suspense>
-		<HelloWorld msg="Vite + Vue" />
-	</Suspense>
-	<ul>
-		<li><router-link to="/">Index</router-link></li>
-		<li><router-link to="/about">About</router-link></li>
-	</ul>
 </template>
 
 <style scoped>

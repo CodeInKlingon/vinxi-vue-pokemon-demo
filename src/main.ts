@@ -13,9 +13,18 @@ import { routes, handleHotUpdate } from "vue-router/auto-routes";
 import { DataLoaderPlugin } from "unplugin-vue-router/data-loaders";
 import { createPinia } from "pinia";
 import { QueryPlugin } from "@pinia/colada";
+import PrimeVue from "primevue/config";
+import Aura from "@primevue/themes/aura";
+import "primeicons/primeicons.css";
 
 export function createApp(isServer: boolean): [App<Element>, Router] {
 	const app = createSSRApp(VueApp);
+
+	app.use(PrimeVue, {
+		theme: {
+			preset: Aura,
+		},
+	});
 
 	const router = createRouter({
 		history: isServer ? createMemoryHistory() : createWebHistory(),
